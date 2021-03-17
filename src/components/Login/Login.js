@@ -20,7 +20,7 @@ export default function Login() {
             setError('');
             setLoading(true);
             await login(email, password);
-            history.push("/home")
+            history.push("/")
         }
         catch {
             setError('Failed to Login');
