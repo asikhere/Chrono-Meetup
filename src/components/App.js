@@ -1,12 +1,13 @@
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { Container, } from "react-bootstrap";
 import AuthProvider from "../contexts/AuthContext";
-import  PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 
 // Components
 import Sigup from "./SignUp/Sigup";
 import Login from "./Login/Login";
 import Home from "./Home/Home";
+import ForgotPassword from "./ForgotPassword/ForgotPassword";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <PrivateRoute exact path="/" component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Sigup} />
+              <Route path="/forgot-password" component={ForgotPassword} />
             </Switch>
           </AuthProvider>
         </Router>
