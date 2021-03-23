@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Card, Button, Alert, Navbar, Nav } from "react-bootstrap";
+import { Card, Button, Alert, Navbar, Nav, Form } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { useHistory } from "react-router-dom";
 
-export default function Home() {
+export default function Profile() {
     const [error, setError] = useState("");
     const { currentUser, logout } = useAuth();
     const history = useHistory();
+
 
     async function handleLogout() {
         setError("")
@@ -25,17 +26,20 @@ export default function Home() {
                 <Nav className="mr-auto">
                 </Nav>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#" >Feeds</Nav.Link>
-                    <Nav.Link href="#" >Notification</Nav.Link>
-                    <Nav.Link href="#" >Message</Nav.Link>
-                    <Nav.Link href="/profile" >Profile</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="#">Notification</Nav.Link>
+                    <Nav.Link href="#">Message</Nav.Link>
+                    <Nav.Link href="/update-profile">Update Profile</Nav.Link>
                 </Nav>
             </Navbar>
             <Card>
                 <Card.Body>
-                    <h2 className="text-center mb-4">Home</h2>
-                    {error && <Alert variant="danger">{error}</Alert>}
-                    <strong>Email:</strong> {currentUser.email}
+                    <Form>
+                        <h2 className="text-center mb-4">Profile</h2>
+                        <strong>Email:</strong> {currentUser.email}
+                        {error && <Alert className="w-25" variant="danger">{error}</Alert>}
+                        {/* <Link to="/update" className="btn btn-primary w-100 mt-3">Update</Link> */}
+                    </Form>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">

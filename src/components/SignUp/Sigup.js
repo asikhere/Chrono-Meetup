@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Card, Form, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
+import CenterContainer from "./../CenterContainer/CenterContainer";
 
 export default function Sigup() {
     const emailRef = useRef();
@@ -35,7 +36,7 @@ export default function Sigup() {
     }
 
     return (
-        <>
+        <CenterContainer>
             <Card>
                 <Card.Body>
                     <h2>Sign Up</h2>
@@ -60,6 +61,6 @@ export default function Sigup() {
             <div className="w-100 text-center mt-2" >
                 Already have an account? <Link to="/login">Log In</Link>
             </div>
-        </>
+        </CenterContainer>
     )
 }
